@@ -65,7 +65,7 @@ int load_from_file(struct car *car_number) {                    //impotr bazy da
         int line = 0;
         do {
             if (fgets(temp_car_data, sizeof(temp_car_data), fptr) != '\0') {
-                printf("Wczytano wiersz %d: %s", line, temp_car_data);
+                printf("Wczytano wiersz %d: %s", line, temp_car_data);        //wyswetlanie wczytanych wiersz z pliku csv
                 {
                     int i = 0, stop = 0;
                     char csv_separator = ';';
@@ -116,11 +116,11 @@ int load_from_file(struct car *car_number) {                    //impotr bazy da
                     } while (stop != 1);
                     i = i + 1;
                     stop = 0;
-                    car_number[line].milleage = 0;                   //pętla odczytująca rok produkcji
+                    car_number[line].milleage = 0;                   //pętla odczytująca przebieg samochodu
                     do {
                         if (temp_car_data[i] != csv_separator) {
                             car_number[line].milleage = 10*car_number[line].milleage + temp_car_data[i] - '0';
-                            i = i + 1;                                      //odczytuje kolejno cyfry i generuje rok produkcji
+                            i = i + 1;                                      //odczytuje kolejno cyfry i generuje przebieg
                         } else
                             stop = 1;                                       //zakonczenie odczytywania
                     } while (stop != 1);
@@ -132,7 +132,7 @@ int load_from_file(struct car *car_number) {                    //impotr bazy da
             }
         } while (temp_car_data[line] != '\0');
 
-    fclose(fptr);
+    fclose(fptr);                                                            //zamkniecie pliku
 
     return line;
 }
