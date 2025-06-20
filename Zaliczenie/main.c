@@ -36,7 +36,7 @@ void print_car(struct car *car_number) {            //funkcja wyswieltajaca samo
     return (*car_number).production_year;
 }
 */
-int save_to_file(struct car *car_number){           //eksport bazdy do plku csv
+int save_to_file(struct car *car_number){           //eksport bazy do plku csv
     FILE *fptr;
     fptr = fopen("cars_export.csv", "a");
     if(fptr == NULL){
